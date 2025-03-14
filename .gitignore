@@ -12,3 +12,5 @@ deep_gemm/include/cutlass
 
 Dockerfile
 /documentation
+/scripts
+
