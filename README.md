@@ -163,7 +163,7 @@ The [Tensor Memory Accelerator](https://docs.nvidia.com/cuda/hopper-tuning-guide
 
 #### A unified and optimized block scheduler
 
-- [One scheduler](deep_gemm/include/deep_gemm/scheduler.cuh) for all non-grouped and grouped kernels
+- [One scheduler](../blackwell_fp8_retrieval/kernels/deep_gemm/scheduler.cuh) for all non-grouped and grouped kernels
 - [Rasterization](https://github.com/NVIDIA/cutlass/blob/eefa171318b79cbe2e78514d4cce5cd0fe919d0c/media/docs/efficient_gemm.md#threadblock-rasterization) to enhance L2 cache reuse
 
 #### Fully JIT design 🐳
@@ -177,7 +177,7 @@ DeepGEMM employs a fully [Just-In-Time](deep_gemm/jit) (JIT) design, with no com
   - But without auto-tuning, the optimal one is deterministically selected
 - Full unrolling of the MMA pipelines, providing compilers with more optimization opportunities
   - Very important for small shapes 
-  - Refer to `launch_k_iterations` in [the kernel file](deep_gemm/include/deep_gemm/fp8_gemm.cuh) for details
+  - Refer to `launch_k_iterations` in [the kernel file](../blackwell_fp8_retrieval/kernels/deep_gemm/fp8_gemm.cuh) for details
 
 Overall, JIT significantly improves performance for small shapes, similar to the approach of the [Triton](https://github.com/triton-lang/triton/) compiler.
 
